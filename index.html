@@ -44,17 +44,31 @@
       <a-box id="player" position="0 -0.5 -2" color="green" scale="0.5 0.3 0.3"></a-box>
     </a-scene>
 
-
 <script>
   (function () {
     var player = document.querySelector("#player");
+    var startX = 0;
+    var currentX = 0;
+    var deltaX = 0;
 
     function handleTouchStart(event) {
       console.log("touchstart");
+      startX = event.touches[0].pageX;
     }
 
     function handleTouchMove(event) {
       console.log("touchmove");
+      currentX = event.touches[0].pageX;
+      deltaX = currentX - startX;
+
+      let currentPosition = player.getAttribute("position");
+
+      currentPosition.x += deltaX * 0.01;
+      currentPosition.x = Math.min(Math.max(currentPosition.x, -2), 2); // Clamp the position between -2 and 2
+
+      player.setAttribute("position", currentPosition);
+
+      startX = currentX;
     }
 
     document.addEventListener("touchstart", handleTouchStart);
