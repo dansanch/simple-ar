@@ -4,12 +4,14 @@
     <meta charset="utf-8" />
     <title>AR Space Invaders - WebXR</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="touch-controls.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
     <a-scene
       renderer="antialias: true; alpha: true; physicallyCorrectLights: true;"
       background="transparent"
       xr="type: ar"
+      touch-controls="element: #player"
     >
       <!-- Camera and reticle -->
       <a-entity camera>
