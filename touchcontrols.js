@@ -16,10 +16,12 @@ AFRAME.registerComponent("touch-controls", {
   },
 
   handleTouchStart: function (event) {
+    console.log("touchstart");
     this.startX = event.touches[0].pageX;
   },
 
   handleTouchMove: function (event) {
+    console.log("touchmove");
     this.currentX = event.touches[0].pageX;
     this.deltaX = this.currentX - this.startX;
 
