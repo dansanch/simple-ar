@@ -11,8 +11,18 @@
       renderer="antialias: true; alpha: true; physicallyCorrectLights: true;"
       background="transparent"
       xr="type: ar"
-      touch-controls="element: #player"
     >
+
+
+     <!-- Touch plane -->
+  <a-plane
+    id="touch-plane"
+    position="0 0 -1"
+    width="10"
+    height="10"
+    material="color: #FFFFFF; transparent: true; opacity: 0;"
+  ></a-plane>
+
       <!-- Camera and reticle -->
       <a-entity camera>
         <a-entity
@@ -33,5 +43,26 @@
       <!-- Player -->
       <a-box id="player" position="0 -0.5 -2" color="green" scale="0.5 0.3 0.3"></a-box>
     </a-scene>
+
+
+<script>
+  (function () {
+    var player = document.querySelector("#player");
+
+    function handleTouchStart(event) {
+      console.log("touchstart");
+    }
+
+    function handleTouchMove(event) {
+      console.log("touchmove");
+    }
+
+    document.addEventListener("touchstart", handleTouchStart);
+    document.addEventListener("touchmove", handleTouchMove);
+  })();
+</script>
+
+
+
   </body>
 </html>
