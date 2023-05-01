@@ -2,13 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>AR Space Invaders - Step 2 (No AR)</title>
+    <title>AR Space Invaders - WebXR</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
-    <a-scene>
+    <a-scene
+      renderer="antialias: true; alpha: true; physicallyCorrectLights: true;"
+      background="transparent"
+      xr="type: ar"
+    >
       <!-- Camera and reticle -->
-      <a-entity camera look-controls>
+      <a-entity camera>
         <a-entity
           cursor="fuse: false; rayOrigin: mouse"
           position="0 0 -1"
